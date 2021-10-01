@@ -1,0 +1,21 @@
+@ то же самое что и HEAD
+git checkout -b newBranch - создание и переход в новую ветку под названием newBranch
+
+Создать новую ветку, произвести там какие-то изменения и слить её с основной:
+git checkout -b bugFix
+git commit "bugFix commit"
+git checkout main
+git commit "commit on branch main"
+git merge bugFix
+
+Вместо merge лучше исопльзовать rebase.
+
+git branch -f main C6 - влить ветку main в С6
+git branch -f main HEAD~3 - влить ветку main на 3 шага назад от HEAD
+
+git checkout C1 - теперь HEAD указывает на С1
+
+git revert - смотрти какие изменения в указаном коммите и создает коммит с новым измением.
+
+git cherry-pick <Commit1> <Commit2> <...> - можно перенести точно известные коммиты в какое-то место.
+git rebase -i HEAD~4 - тоже что и xherry-pick олько указываем коммиты, которые не надо переносить
